@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import Providers from "@/components/providers";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 
@@ -25,16 +26,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-geistSans.variable,
-geistMono.variable,
+    <Providers>
+      <html lang="en">
+        <body
+          className={cn(
+            geistSans.variable,
+            geistMono.variable,
             "font-sans antialiased",
           )}
-      >
-        {children}
-      </body>
-    </html>
+        >
+          {children}
+        </body>
+      </html>
+    </Providers>
   );
 }
